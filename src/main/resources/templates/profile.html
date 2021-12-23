@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<script
+	src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	
+</script>
+
+<script
+	src="
+https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+	
+</script>
+
+<script
+	src="
+https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+	
+</script>
+
+<link rel="stylesheet" type="text/css" href="../static/css/profile.css"
+	th:href="@{/css/profile.css}">
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"
+	integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"
+	integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l"
+	crossorigin="anonymous" />
+</head>
+<body style="background-color: #f6f6f6">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark"
+		style="width: 100%">
+		<img th:src="@{/images/logo1.png}" width="4%">
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav" style="margin-left: 95%">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" style="color: white;" href="#"
+					id="navbarDropdownMenuLink" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> <img
+						th:src="@{/images/170593H.png}" width="60%">
+
+				</a>
+					<div class="dropdown-menu dropdown-menu-right"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" th:href="@{/home/profile}"
+							th:utext="${username}"></a> <a class="dropdown-item"
+							th:href="@{/logout-success}">Logout</a>
+
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="sidebar">
+		<a th:href="@{/home}" id="home"> <i class="fas fa-th"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" style="marhin-top: 5%" id="Span">Home</span>
+		</a> <a th:href="@{/addStudent}"> <i class="fas fa-user"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Add student</span>
+		</a> <a th:href="@{/newBook}"> <i class="fas fa-book"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">New book</span>
+		</a> <a href="#contact"> <i class="fas fa-phone"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Contact</span>
+		</a> <a href="#about"> <i class="fas fa-info-circle"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Info</span>
+
+		</a>
+	</div>
+
+	<div class="card" id="ProfileCard">
+		<p class="text-left pt-2 ml-3 mt-2">User Profile</p>
+	</div>
+
+	<!--<div class="card" id="ImageCard">
+		<img class="card-img-top" th:src="@{/images/170593H.png}">
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<h6 th:utext="${name}"></h6>
+
+		</div>
+	</div>-->
+
+	<div class="card " id="InfoCard" style="border-radius: 0px">
+		<div class="card-body ">
+			<h5 class="card-title">Details</h5>
+			<hr style="margin-top: 1px">
+
+			<div class="row">
+				<div class="col-3">
+
+					<div class="card" id="imageCard"
+						style="width: 100%; border-radius: 0px">
+						<img class="card-img-top" th:src="@{/images/170593H.png}">
+						<div class="card-body">
+							<h5 class="card-title"></h5>
+							<h6 style="font-size: 1.5vw;" th:utext="${name}"></h6>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-8">
+					<div class="card" id="Details"
+						style="margin: 0; width: 100%; border-radius: 0px">
+
+						<div class="card-body">
+							<h6 style="font-size: 1vw;">
+								Email Address: <span style="font-weight: normal"
+									th:utext="${email}"></span>
+							</h6>
+
+							<h6 style="font-size: 1vw;">
+								First Name: <span style="font-weight: normal"
+									th:utext="${first_name}"></span>
+							</h6>
+
+							<h6 style="font-size: 1vw;">
+								Last Name: <span style="font-weight: normal"
+									th:utext="${last_name}"></span>
+							</h6>
+
+							<h6 style="font-size: 1vw;">
+								Status: <span style="font-weight: normal"
+									th:utext="${status}"></span>
+							</h6>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+
+			$('.sidebar > a').click(function(e) {
+				$("#home").removeClass("active")
+				$(this).addClass('active');
+			});
+
+		});
+	</script>
+</body>
+</html>

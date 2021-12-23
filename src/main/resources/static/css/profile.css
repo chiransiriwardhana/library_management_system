@@ -1,0 +1,153 @@
+@charset "ISO-8859-1";
+
+.sidebar {
+	margin:auto;
+	padding:0;
+	width:15%;
+	background-color:#232370;
+	position:absolute;
+	height:100%;
+	overflow:hidden;
+	height:150vh;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+.sidebar a {
+	display:block;
+	color:#d2d2d6;
+	padding:16px;
+	 text-decoration: none !important;
+}
+
+.sidebar a span {
+	 font-size:17px;
+}
+
+
+
+.sidebar a.active {
+	
+	color:white;
+}
+
+.sidebar a:hover:not(.active) {
+
+	color:#d2d2d6;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.card {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+#userInfo{
+	margin-top:3%;
+}
+
+#collapsibleNavbar{
+	float:right;
+	margin-left:85%;	
+}
+
+
+.img{
+	float:right;	
+}
+
+
+#Span{
+	font-size:bold
+}
+
+#btn_link{
+	display:inline;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+#ProfileCard{
+
+float:left;
+margin-left:18%;
+margin-top:1%;
+width:75%;
+height:100%;
+border-radius:0px;
+}
+
+#ImageCard{
+	margin-top:1%;
+	margin-left:15%;
+	max-width:15rem;
+	float:left;
+	border-radius:0px;
+}
+
+#InfoCard{
+	
+	margin-top:1%;
+	margin-left:18%;
+	margin-right:2%;
+	width:75%;
+	height:100vh;
+	float:left;
+	border-radius:0px;
+}
+
+
+
+
+
+
+
+
+
+

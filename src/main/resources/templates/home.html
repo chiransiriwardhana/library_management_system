@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Management System</title>
+
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"
+	integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"
+	integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l"
+	crossorigin="anonymous" />
+</head>
+
+
+<body style="background-color: #f6f6f6; height: 150vh">
+
+	<!--<nav class="navbar  navbar-expand-md bg-dark navbar-dark" id="navBar">
+
+		<img th:src="@{/images/logo1.png}" width="4%">
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav" style="margin-top: 1%; margin-left: 64%;">
+				<li class="nav-item" style="float: right">
+					<a class="navbar-brand" th:href="@{/logout-success}"> <i
+						class="fas fa-sign-out-alt"></i>
+
+					</a>
+				</li>	
+			</ul>
+		</div>
+
+	</nav>-->
+	
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  
+  <img th:src="@{/images/logo1.png}" width="4%">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav" style="margin-left:95%">
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle"  style="color:white; " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+          <img th:src="@{/images/170593H.png}" width="60%">
+          	
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/home/profile}" th:utext="${username}"></a>
+          <a class="dropdown-item" th:href="@{/logout-success}">Logout</a>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+	<div class="sidebar">
+		<a class="active" th:href="@{/}" id="home"> <i class="fas fa-th"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" style="margin-top: 5%">Home</span>
+		</a> <a th:href="@{/addStudent}"> <i class="fas fa-user"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name">Add student</span>
+		</a> <a th:href="@{/newBook}"> <i class="fas fa-book"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name">New book</span>
+		</a> <a href="#contact"> <i class="fas fa-phone"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name">Contact</span>
+		</a> <a href="#about"> <i class="fas fa-info-circle"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name">Info</span>
+
+		</a>
+	</div>
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

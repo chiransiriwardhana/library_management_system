@@ -1,0 +1,167 @@
+@charset "ISO-8859-1";
+
+body {
+	
+}
+
+
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1500px;
+    }
+}
+
+
+
+
+.sidebar {
+	margin:auto;
+	padding:0;
+	width:15%;
+	background-color:#232370;
+	position:absolute;
+	height:100%;
+	overflow:hidden;
+	height:150vh;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+#collapsibleNavbar{
+	float:right;
+	margin-left:85%;	
+}
+
+.card .text-left {
+	font-size:16px;
+}
+
+.img{
+	float:right;
+	
+}
+.sidebar a {
+	display:block;
+	color:#d2d2d6;
+	padding:16px;
+	 text-decoration: none !important;
+}
+
+.sidebar a span {
+	 font-size:17px;
+}
+
+
+
+.sidebar a.active {
+	
+	color:white;
+}
+
+.sidebar a:hover:not(.active) {
+
+	color:#d2d2d6;
+}
+
+#Span{
+	font-size:bold
+}
+
+#btn_link{
+	display:inline;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.card {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.card{
+
+ margin-top:2%;
+width:75%;
+margin-left:20%;
+margin-right:auto;
+overflow-x:hidden;
+overflow-y:hidden;
+
+
+}
+
+.form {
+	margin-left:5%;
+	margin-right:10%
+}
+
+
+#formControl {
+
+    border:inherit;
+	border-radius: 0;
+	  border: 1px solid #ccc;
+background-color:#ffffff;
+  box-sizing: border-box;
+  
+}
+
+#formControl:focus {
+
+	outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
+#formControl:hover {
+     color:none
+    }

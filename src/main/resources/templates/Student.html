@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+    <script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+  
+    <script src="
+https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+    </script>
+  
+    <script src="
+https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    </script>
+    
+<link rel="stylesheet" type="text/css" href="../static/css/main.css"
+	th:href="@{/css/main.css}">
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+ 
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+	crossorigin="anonymous" />
+
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"
+	integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"
+	integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l"
+	crossorigin="anonymous" />
+</head>
+<body style="background-color: #f6f6f6">
+
+	<!--<nav class="navbar  navbar-expand-md bg-dark navbar-dark" id="navBar">
+		
+		<img th:src="@{/images/logo1.png}" width="4%">
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav"  style="margin-top:1%">
+				<li class="nav-item"><a class="navbar-brand" href="#">Library
+						Management</a></li>
+
+				<li class="nav-item"><a class="navbar-brand"
+					th:href="@{/logout-success}"> <i class="fas fa-sign-out-alt"
+						style="margin-right: 2%; padding-left: 3px"></i> <span
+						class="links_name">Logout</span>
+				</a></li>
+			</ul>
+
+		</div>
+	</nav>-->
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  
+  <img th:src="@{/images/logo1.png}" width="4%">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav" style="margin-left:95%">
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle"  style="color:white; " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <img th:src="@{/images/170593H.png}" width="60%">
+          	
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" th:href="@{/home/profile}" th:utext="${username}"></a>
+          <a class="dropdown-item" th:href="@{/logout-success}">Logout</a>
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+	<div class="sidebar">
+		<a  th:href="@{/home}" id="home"> <i class="fas fa-th"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" style="marhin-top:5%" id="Span">Home</span>
+		</a> <a th:href="@{/addStudent}"> <i class="fas fa-user"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Add student</span>
+		</a> <a th:href="@{/newBook}"> <i class="fas fa-book"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">New book</span>
+		</a> <a href="#contact"> <i class="fas fa-phone"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Contact</span>
+		</a> <a href="#about"> <i class="fas fa-info-circle"
+			style="padding-right: 5px; padding-left: 3px"></i> <span
+			class="links_name" id="Span">Info</span>
+
+		</a>
+	</div>
+
+	<div class="card" id="Card">
+		<p class="text-left pt-2 ml-3 mt-2">Create New Student</p>
+		<hr style="margin-top: 1px">
+		<div class="card-body ">
+			<!-- redirect url represented as @{/students} -->
+			<form th:action="@{/addStudent}" th:object="${student}" method="POST"
+				class="form ml-8 mr-8 pb-3">
+
+				<div class="row ">
+					<div class="column " style="width: 50%">
+						<div class="form-group  pr-4">
+							<!-- for binding data to model attribute use *{firstName} syntax -->
+							<label> First Name</label>
+							<!-- Use th:field to bind firstName to firstName attribute of Student object -->
+							<input type="text" name="firstName" th:field="*{firstName}"
+								class="form-control" id="formControl"
+								placeholder="Enter Student First Name">
+
+						</div>
+					</div>
+					<div class="column " style="width: 50%">
+						<div class="form-group">
+							<label for="birthday">Date of Birth</label> <input type="date"
+								name="birth_date" th:field="*{birth_date}"
+								class="form-control col-xs-4 " id="formControl"
+								placeholder="Enter Student memeberType">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column pr-4" style="width: 50%">
+						<div class="form-group">
+							<label> Middle Name</label> <input type="text" name="middleName"
+								th:field="*{middleName}" class="form-control" id="formControl"
+								placeholder="Enter Student middle Name">
+						</div>
+					</div>
+					<div class="column" style="width: 10%">
+						<div class="form-group">
+							<label for="gender">Gender</label> <select name="gender"
+								id="gender" style="display: block">
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column pr-4" style="width: 50%">
+						<div class="form-group">
+							<label> Last name</label> <input type="text" name="lastName"
+								th:field="*{lastName}" class="form-control col-xs-4 "
+								id="formControl" placeholder="Enter Student last Name">
+						</div>
+					</div>
+					<div class="column" style="width: 50%">
+						<div class="form-group">
+							<label> Contact Number</label> <input type="text" name="contact"
+								th:field="*{contact}" class="form-control col-xs-4 "
+								id="formControl" placeholder="Enter Contact Number">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="column pr-4" style="width: 50%">
+						<div class="form-group">
+							<label> Member Type</label> <input type="text" name="memberType"
+								th:field="*{memberType}" class="form-control col-xs-4 "
+								id="formControl" placeholder="Enter Student memeberType">
+						</div>
+					</div>
+					<div class="column" style="width: 50%">
+						<div class="form-group">
+							<label> Email</label> <input type="email" name="email"
+								th:field="*{email}" class="form-control col-xs-4 "
+								id="formControl" placeholder="Enter Email Adress">
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="box-footer">
+						<button type="submit" class="btn btn-info mt-5 pr-4 pl-4 mr-4"
+							id="submit">Submit</button>
+
+					</div>
+
+					<!--<div class="box-footer">
+						<input type="reset" value="Reset"  class="btn btn-info mt-5 pr-4 pl-4" id="clear"/>
+
+					</div>-->
+				</div>
+			</form>
+		</div>
+	</div>
+<script>
+
+$(document).ready(function () {
+	  
+    $('.sidebar > a')
+            .click(function (e) {
+        $("#home").removeClass("active")
+        $(this).addClass('active');
+    });
+   
+});
+
+
+</script>
+</body>
+</html>
